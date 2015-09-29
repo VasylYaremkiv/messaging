@@ -48,7 +48,9 @@ class User
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
 
-  before_validation :generate_password
+  before_validation :generate_password, on: :create
+
+  scope :active, -> { where(active: true) }
 
   def email_required?
     false

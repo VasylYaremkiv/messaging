@@ -1,8 +1,6 @@
 %ul.nav.nav-pills{ role: 'tablist' }
   %li{ role: 'presentation' }
-    = link_to 'Contacts', '#'
-  %li{ role: 'presentation' }
-    = link_to '#' do
+    = link_to messages_path do
       Messages
       %span.badge 3
   %li{ role: 'presentation' }
