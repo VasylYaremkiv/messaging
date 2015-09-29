@@ -1,0 +1,20 @@
+= form_for(@user, url: admin_user_path(@user), method: :put) do |f|
+  - @user.errors.full_messages.each do |msg|
+    %p.error-message= msg
+  .form-group
+    = f.label :first_name
+    %br
+    = f.text_field :first_name, class: 'form-control'
+
+  .form-group
+    = f.label :last_name
+    %br
+    = f.text_field :last_name, class: 'form-control'
+
+  .form-group
+    = f.label :active
+    %br
+    = f.check_box :active
+
+  .actions
+    = f.submit 'Update', class: 'btn btn-primary'

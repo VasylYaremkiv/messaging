@@ -1,0 +1,14 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'login-form' }) do |f|
+  = devise_error_messages!
+  .field.form-group
+    = f.label :username
+    %br
+    = f.text_field :username, autofocus: true, class: 'form-control'
+
+  .field.form-group
+    = f.label :password
+    %br
+    = f.password_field :password, autocomplete: 'off', class: 'form-control'
+
+  .actions
+    = f.submit 'Log in', class: 'btn btn-default'
