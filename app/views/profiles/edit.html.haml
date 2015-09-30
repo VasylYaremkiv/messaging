@@ -1,0 +1,27 @@
+= form_for current_user, as: :profile, url: profile_path do |f|
+  - current_user.errors.full_messages.each do |msg|
+    %p.error-message= msg
+
+  .form-group
+    = f.label :first_name
+    %br
+    = f.text_field :first_name, class: 'form-control'
+
+  .form-group
+    = f.label :last_name
+    %br
+    = f.text_field :last_name, class: 'form-control'
+
+  .form-group
+    = f.label :password
+    %br
+    = f.password_field :password, class: 'form-control'
+
+  .form-group
+    = f.label :password_confirmation
+    %br
+    = f.password_field :password_confirmation, class: 'form-control'
+
+  .actions
+    = f.submit 'Update', class: 'btn btn-primary'
+

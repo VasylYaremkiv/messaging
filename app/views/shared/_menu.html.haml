@@ -5,7 +5,7 @@
       %span.badge{ class: current_user.unread_message_count.zero? && 'hide', data: { behaviour: 'update-counters' } }
         = current_user.unread_message_count
   %li{ role: 'presentation' }
-    = link_to 'Profile', '#'
+    = link_to 'Profile', edit_profile_path
   - if can? :manage, User
     %li{ role: 'presentation' }
       = link_to 'Admin Panel', admin_users_path
