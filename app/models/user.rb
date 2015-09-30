@@ -45,6 +45,7 @@ class User
   field :first_name, type: String
   field :last_name, type: String
   field :active, type: Boolean, default: true
+  field :unread_message_count, type: Integer, default: 0
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
 

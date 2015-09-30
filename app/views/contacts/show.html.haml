@@ -1,0 +1,12 @@
+.chat
+  - @messages.each do |message|
+    - unless message_from_me?(message, current_user)
+      = message.sender.name
+    .bubble{ class: message_sender(message, current_user) }= message.message
+
+= form_for(@message, url: create_message_contact_path(@user)) do |f|
+  .form-group
+    = f.text_area :message, class: 'form-control', rows: 3
+
+  .actions
+    = f.submit 'Send Message', class: 'btn btn-primary'

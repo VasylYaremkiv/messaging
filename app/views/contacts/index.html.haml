@@ -1,0 +1,9 @@
+Messages
+
+%ul.list-group
+  - @contacts.each do |contact|
+    %li
+      = link_to contact_path(contact), class: 'list-group-item' do
+        - if Message.unread_by_users(contact.id, current_user.id).count > 0
+          %span.badge= Message.unread_by_users(contact.id, current_user.id).count
+        = contact.name
