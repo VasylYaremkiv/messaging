@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root 'messages#index'
+  root 'contacts#index'
 
   namespace :admin do
     resources :users, except: :show do
@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :messages, only: %w(index create show)
+  resources :contacts, only: %w(index create show) do
+    post :create_message, on: :member
+    get :amount_unread_message, on: :collection
+  end
 
 end
