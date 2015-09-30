@@ -14,4 +14,6 @@ Rails.application.routes.draw do
     get :amount_unread_message, on: :collection
   end
 
+  resource :profile, only: %w(edit update)
+
 end
